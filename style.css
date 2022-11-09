@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@200;400;600&display=swap");
+
+:root {
+  --green-primary: #11998e;
+  --green-secondary: #38ef7d;
+  --dark: #141e30;
+  --dark-opacity: rgba(0, 0, 30, 0.35);
+  --white: #ffffff;
+  --white-opacity: rgba(255, 255, 255, 0.25);
+  --red: #ff4757;
+}
+
+* {
+  font-family: "Albert Sans", sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    var(--green-primary),
+    var(--green-secondary)
+  );
+}
+
+p {
+  color: var(--dark);
+  margin-top: 1.5rem;
+}
+
+p a {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  color: var(--dark);
+}
+
+.container {
+  overflow: hidden;
+  width: 650px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.3rem;
+  box-shadow: var(--dark-opacity) 0px 5px 15px;
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.animate {
+  transition: all ease-in-out 2s;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+/**** section current day ****/
+
+.current-day {
+  width: 38%;
+  background-color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.9rem;
+  color: var(--white);
+}
+
+.day {
+  font-size: 6rem;
+}
+
+.weekday {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.time {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  gap: 0.3rem;
+  opacity: 0.6;
+  line-height: 1;
+}
+
+.time span.material-symbols-outlined {
+  font-size: 1rem;
+  opacity: 0.4;
+}
+
+.holidays {
+  width: 90%;
+}
+
+.holiday-details {
+  width: 90%;
+  margin-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.holiday-details i.circle {
+  width: 5px;
+  height: 5px;
+  border-width: 0.12rem;
+  border-style: solid;
+  border-radius: 25rem;
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+
+.holiday-details i.circle.holiday {
+  border-color: var(--green-primary);
+}
+
+.holiday-details i.circle.optional {
+  border-color: var(--white-opacity);
+}
+
+.holiday-details div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.holiday-details .title {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* section calendar */
+
+.calendar {
+  width: 62%;
+  color: var(--dark);
+  background-color: var(--white);
+  padding: 0.9rem 0.9rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.year {
+  width: 100%;
+  display: flex;
+  font-size: 1.5rem;
+  line-height: 1;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.year span.material-symbols-outlined {
+  opacity: 0.5;
+  margin-right: auto;
+}
+
+.year div {
+  display: flex;
+  flex-direction: column;
+  height: 1.2rem;
+  justify-content: space-between;
+}
+
+.year button {
+  opacity: 0.5;
+  outline: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.year button:hover {
+  opacity: 1;
+}
+
+.year button div {
+  width: 0;
+  height: 0;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.year button div.prev {
+  border-top: 5px solid var(--dark);
+}
+
+.year button div.next {
+  border-bottom: 5px solid var(--dark);
+}
+
+.month {
+  width: 100%;
+  margin: 2rem auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  line-height: 1;
+}
+
+.month span.month-name {
+  width: 200px;
+  text-align: center;
+}
+
+.month button {
+  opacity: 0.5;
+  outline: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.month button:hover {
+  opacity: 1;
+}
+
+.month button div {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.month button div.prev {
+  border-right: 5px solid var(--dark);
+}
+
+.month button div.next {
+  border-left: 5px solid var(--dark);
+}
+
+table {
+  margin: 0 auto;
+  width: 90%;
+  font-size: 0.85rem;
+  color: var(--dark);
+  border-spacing: 0.8rem;
+  overflow: hidden;
+}
+
+table tbody.slide-to-left {
+  transition: 0.4s ease-in-out;
+  opacity: 1;
+  transform: translateX(-0%);
+}
+
+table tr th {
+  opacity: 0.6;
+}
+
+table tr td {
+  text-align: center;
+  padding: 0;
+}
+
+table tr td span {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.7rem;
+  width: 1.7rem;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+table tr td.past span {
+  opacity: 0.3;
+}
+
+table tr td.current span {
+  background-color: var(--green-primary);
+  font-weight: bold;
+  color: var(--white);
+  border-radius: 25rem;
+  opacity: 1;
+}
+
+table tr td.weekend span {
+  color: var(--red);
+}
+
+table tr td.holiday span {
+  border: 2px solid var(--green-primary);
+  border-radius: 25rem;
+}
+
+table tr td.optional span {
+  border: 2px solid var(--dark-opacity);
+  border-radius: 25rem;
+}
